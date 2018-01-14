@@ -1,0 +1,11 @@
+#Config Version 1 by Yukun
+#Placeholders:
+#- %player% for player's display name.
+#- %stripped% pieces of armour that have been stripped.
+Messages:
+  #prefix before all messages
+  Prefix: '&bStrip&eArmour&f >> &7'
+  #Message sent when you strip the player
+  Stripped: '&aYou have stripped %player% &anaked!'
+  #Message sent when the player's inventory is full.
+  InvenFull: "&cPlayer's inventory is full! Only the player's %stripped% &cwere stripped!"

@@ -1,0 +1,10 @@
+name: StripArmour
+author: Yukun
+main: me.Yukun.StripArmour.Main
+version: 1.0.3
+description: >
+             A plugin to take off players' armour.
+commands:
+  striparmour:
+    description: Strips armour off a player
+    aliases: [striparmour, strip, sa]
