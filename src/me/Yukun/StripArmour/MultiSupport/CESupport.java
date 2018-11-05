@@ -6,8 +6,8 @@ import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 
 import me.badbones69.crazyenchantments.api.CrazyEnchantments;
-import me.badbones69.crazyenchantments.api.events.ArmorEquipEvent.EquipMethod;
-import me.badbones69.crazyenchantments.api.events.ArmorEquipEvent;
+import me.badbones69.crazyenchantments.multisupport.armorequip.ArmorEquipEvent.EquipMethod;
+import me.badbones69.crazyenchantments.multisupport.armorequip.ArmorEquipEvent;
 
 public class CESupport {
 	public static void callEvent(Player player, ItemStack armour) {
