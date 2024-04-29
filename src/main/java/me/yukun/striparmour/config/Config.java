@@ -42,7 +42,7 @@ public class Config {
     if (player.hasPermission("striparmour.admin")) {
       return true;
     }
-    return player.hasPermission("striparmour.bypass");
+    return !player.hasPermission("striparmour.bypass");
   }
 
   /**

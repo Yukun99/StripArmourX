@@ -9,7 +9,6 @@ import me.yukun.striparmour.Main;
 import me.yukun.striparmour.config.Config;
 import me.yukun.striparmour.config.Messages;
 import org.bukkit.Bukkit;
-import org.bukkit.Material;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
@@ -21,7 +20,7 @@ public class StripCommand extends StripArmourCommand {
   private static final Map<String, Function<Player, Boolean>> stripCommandMap = new HashMap<>() {{
     put("helmet", (player) -> {
       ItemStack helmet = player.getInventory().getHelmet();
-      player.getInventory().setHelmet(new ItemStack(Material.AIR));
+      player.getInventory().setHelmet(null);
       if (!tryStripping(player, helmet)) {
         player.getInventory().setHelmet(helmet);
         return false;
@@ -30,7 +29,7 @@ public class StripCommand extends StripArmourCommand {
     });
     put("chestplate", (player) -> {
       ItemStack chestplate = player.getInventory().getChestplate();
-      player.getInventory().setChestplate(new ItemStack(Material.AIR));
+      player.getInventory().setChestplate(null);
       if (!tryStripping(player, chestplate)) {
         player.getInventory().setChestplate(chestplate);
         return false;
@@ -39,7 +38,7 @@ public class StripCommand extends StripArmourCommand {
     });
     put("leggings", (player) -> {
       ItemStack leggings = player.getInventory().getLeggings();
-      player.getInventory().setLeggings(new ItemStack(Material.AIR));
+      player.getInventory().setLeggings(null);
       if (!tryStripping(player, leggings)) {
         player.getInventory().setLeggings(leggings);
         return false;
@@ -48,7 +47,7 @@ public class StripCommand extends StripArmourCommand {
     });
     put("boots", (player) -> {
       ItemStack boots = player.getInventory().getBoots();
-      player.getInventory().setBoots(new ItemStack(Material.AIR));
+      player.getInventory().setBoots(null);
       if (!tryStripping(player, boots)) {
         player.getInventory().setBoots(boots);
         return false;
@@ -60,7 +59,7 @@ public class StripCommand extends StripArmourCommand {
         return true;
       }
       ItemStack offhand = player.getInventory().getItemInOffHand();
-      player.getInventory().setItemInOffHand(new ItemStack(Material.AIR));
+      player.getInventory().setItemInOffHand(null);
       if (!tryStripping(player, offhand)) {
         player.getInventory().setItemInOffHand(offhand);
         return false;
@@ -95,6 +94,10 @@ public class StripCommand extends StripArmourCommand {
       return;
     }
     victim = player;
+    if (args.length == 2) {
+      strippers.addAll(stripCommandMap.values());
+      return;
+    }
     for (int i = 2; i < args.length; i++) {
       if (!stripCommandMap.containsKey(args[i])) {
         Messages.sendStripInvalidArmour(sender, args[i]);
@@ -118,15 +121,14 @@ public class StripCommand extends StripArmourCommand {
       Messages.sendStripImmune(sender);
       return false;
     }
-    if (strippers.isEmpty()) {
-      return false;
-    }
+    boolean hasSpace = true;
     for (Function<Player, Boolean> stripper : strippers) {
-      if (!stripper.apply(victim)) {
-        Messages.sendNoSpace(sender);
-      } else {
-        Messages.sendStrip(sender, victim);
-      }
+      hasSpace = stripper.apply(victim) && hasSpace;
+    }
+    if (hasSpace) {
+      Messages.sendStrip(sender, victim);
+    } else {
+      Messages.sendNoSpace(sender);
     }
     Messages.sendStripped(victim);
     return true;
