@@ -1,0 +1,7 @@
+# Whether to strip item in player's off hand. Only works for 1.9 and above.
+# You WILL error if you enable this for versions 1.9 and below.
+# Only affects what gets stripped when you use /striparmour strip (player).
+StripOffHand: False
+# Whether to ignore whether player's inventory is full when stripping.
+# Will just drop extra items on the ground if True.
+IgnoreNoSpace: True

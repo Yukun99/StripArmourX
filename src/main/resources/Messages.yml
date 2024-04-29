@@ -1,0 +1,15 @@
+#Config Version 1 by Yukun
+#Placeholders:
+# %player% --> for player display name (Usable in Strip)
+# %items% --> pieces of armour stripped successfully (Usable in NoSpace)
+
+# Prefix before all messages.
+Prefix: "&bStrip&eArmour&f >> &7"
+# Message to you when you strip the player.
+Strip: "&aYou have stripped %player%&r&a naked!"
+# Message sent to player when you strip the player.
+Stripped:
+  Enable: True
+  Message: "&cYou have been stripped naked! AAAA!!!"
+# Message sent when the player's inventory is full.
+NoSpace: "&cPlayer's inventory is full! Only the following items were stripped\n%items%"
