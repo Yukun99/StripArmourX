@@ -1,7 +1,7 @@
 name: StripArmour
 author: Yukun
 main: me.yukun.striparmour.Main
-version: 1.0.0
+version: 1.0.0a
 api-version: 1.20
 description: >
   A plugin to take off players' armour.

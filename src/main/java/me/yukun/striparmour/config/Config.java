@@ -36,10 +36,10 @@ public class Config {
    * @return If specified player can be stripped.
    */
   public static boolean canStrip(Player player) {
-    if (player.hasPermission("striparmour.*")) {
+    if (!player.hasPermission("striparmour.*")) {
       return true;
     }
-    if (player.hasPermission("striparmour.admin")) {
+    if (!player.hasPermission("striparmour.admin")) {
       return true;
     }
     return !player.hasPermission("striparmour.bypass");
