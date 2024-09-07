@@ -13,7 +13,7 @@ import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
 
-public class Main extends JavaPlugin implements Listener {
+public class StripArmour extends JavaPlugin implements Listener {
 
   private boolean isConfigErrored = false;
 

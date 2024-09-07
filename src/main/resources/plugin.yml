@@ -1,6 +1,6 @@
 name: StripArmour
 author: Yukun
-main: me.yukun.striparmour.Main
+main: me.yukun.striparmour.StripArmour
 version: 1.0.0a
 api-version: 1.20
 description: >

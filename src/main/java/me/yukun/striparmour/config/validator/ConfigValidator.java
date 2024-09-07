@@ -8,7 +8,7 @@ import org.bukkit.configuration.file.FileConfiguration;
 
 public class ConfigValidator implements IValidator {
 
-  private final Map<String, FieldTypeEnum> FIELDS = new HashMap<>(37) {{
+  private final Map<String, FieldTypeEnum> FIELDS = new HashMap<>(2) {{
     put("StripOffHand", FieldTypeEnum.BOOLEAN);
     put("IgnoreNoSpace", FieldTypeEnum.BOOLEAN);
   }};

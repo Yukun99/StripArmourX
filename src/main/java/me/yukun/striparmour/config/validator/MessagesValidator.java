@@ -11,7 +11,7 @@ import org.bukkit.configuration.file.FileConfiguration;
 
 public class MessagesValidator implements IValidator {
 
-  private final Map<String, FieldTypeEnum> fields = new HashMap<>(7) {{
+  private final Map<String, FieldTypeEnum> fields = new HashMap<>(5) {{
     put("Prefix", FieldTypeEnum.STRING);
     put("Strip", FieldTypeEnum.STRING);
     put("Stripped.Enable", FieldTypeEnum.BOOLEAN);
@@ -19,11 +19,11 @@ public class MessagesValidator implements IValidator {
     put("NoSpace", FieldTypeEnum.STRING);
   }};
 
-  private final Set<String> playerPlaceholderFields = new HashSet<>() {{
+  private final Set<String> playerPlaceholderFields = new HashSet<>(1) {{
     add("Strip");
   }};
 
-  private final Set<String> itemsPlaceholderFields = new HashSet<>() {{
+  private final Set<String> itemsPlaceholderFields = new HashSet<>(1) {{
     add("NoSpace");
   }};
 

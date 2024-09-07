@@ -5,7 +5,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.function.Function;
-import me.yukun.striparmour.Main;
+import me.yukun.striparmour.StripArmour;
 import me.yukun.striparmour.config.Config;
 import me.yukun.striparmour.config.Messages;
 import org.bukkit.Bukkit;
@@ -55,7 +55,7 @@ public class StripCommand extends StripArmourCommand {
       return true;
     });
     put("offhand", (player) -> {
-      if (Main.getVersion() < 190) {
+      if (StripArmour.getVersion() < 190) {
         return true;
       }
       ItemStack offhand = player.getInventory().getItemInOffHand();
